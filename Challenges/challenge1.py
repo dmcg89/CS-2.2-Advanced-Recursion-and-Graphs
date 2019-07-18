@@ -1,16 +1,16 @@
 from graph import Vertex, Graph
 import string
 import re
+import sys
 
 if __name__ == "__main__":
 
-    # with open('./graph_data.txt') as f:
-    #     lines = f.read().splitlines()
-    #     for item in lines:
-    #         item = re.sub(r" ?\([^)]+\)", "", item)
-    # with open(sys.argv[1], 'r') as f:
-    with open('./graph_data.txt', 'r') as f:
-    #graph_data = f.readlines()
+    if len(sys.argv) > 1:
+        graph_file = sys.argv[1]
+    else:
+        graph_file = './graph_data.txt'
+
+    with open(graph_file, 'r') as f:
         graph_data = []
         for line in f:
             x = line.strip('()\n').split(',')

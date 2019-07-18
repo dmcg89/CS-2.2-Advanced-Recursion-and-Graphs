@@ -95,9 +95,6 @@ class Graph:
             # Hint: the vertex f is stored in self.vertList[f].
             self.vert_dict[key1].add_neighbor(self.vert_dict[key2], cost)
             self.vert_dict[key2].add_neighbor(self.vert_dict[key1], cost)
-            item = [key1, key2, cost]
-            self.edge_list.append(item)
-
 
     def get_vertices(self):
         """return all the vertices in the graph"""

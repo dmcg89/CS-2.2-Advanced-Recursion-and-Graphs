@@ -67,16 +67,5 @@ class Graph_Tests(unittest.TestCase):
         assert 1 in test_graph.get_vertices()
         assert 2 in test_graph.get_vertices()
 
-
-test_graph = Graph()
-test_graph.add_vertex(1)
-test_graph.add_vertex(2)
-test_graph.add_edge(1, 2)
-test_vert1 = test_graph.vert_dict[1]
-test_vert2 = test_graph.vert_dict[2]
-if test_vert2 in test_vert1.neighbors:
-    print('here')
-    print(test_vert1.neighbors)
-
 if __name__ == '__main__':
     unittest.main()

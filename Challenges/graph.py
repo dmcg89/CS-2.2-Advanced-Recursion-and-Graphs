@@ -41,10 +41,10 @@ class Vertex(object):
         """return the id of this vertex"""
         return self.id
 
-    def get_edge_weight(self, vertex):
+    def get_edge_weight(self, to_vertex):
         """return the weight of this edge"""
         #  return the weight of the edge from this vertex to the given vertex.
-        return self.neighbors[vertex]
+        return self.neighbors[to_vertex]
 
 
 """ Graph Class

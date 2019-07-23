@@ -7,7 +7,7 @@ A helper class for the Graph class that defines vertices and vertex neighbors.
 
 class Vertex(object):
 
-    def __init__(self, vertex):
+    def __init__(self, vertex, visited = False, distance = 9999):
         """initialize a vertex and its neighbors
 
         neighbors: set of vertices adjacent to self,
@@ -16,6 +16,9 @@ class Vertex(object):
         """
         self.id = vertex
         self.neighbors = {}
+        self.visited = visited
+        self.distance = distance
+        self.path = []
 
     def add_neighbor(self, vertex, weight=0):
         """add a neighbor along a weighted edge"""
@@ -78,7 +81,7 @@ class Graph:
         """return the vertex if it exists"""
         #  return the vertex if it is in the graph
         if key in self.vert_dict:
-            return key
+            return self.vert_dict[key]
         raise ValueError('Vertex not found: {}'.format(key))
 
     def add_edge(self, key1, key2, cost=0):

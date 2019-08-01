@@ -44,6 +44,7 @@ class Vertex(object):
         for key in self.neighbors:
             keys.append(key.id)
         return keys
+        # pass
 
     def get_id(self):
         """return the id of this vertex"""
@@ -123,12 +124,16 @@ class Graph:
         return str(self.vert_dict.keys())
 
     def bfs(self, from_vert, to_vert):
+        """Find shortest path between two vertices using breadth first search"""
         queue = deque()
         shortest_path = []
         visited = {}
+        
         if from_vert == to_vert:
+            # Base case: shortest path between same vertices is 0
             return("Vertices in shortest path: {}\n Number of edges in shortest path: {} ".format(shortest_path, num_edges))
         else:
+            # Append start vert to front of queue and change it to visited
             queue.appendleft(from_vert)
             visited[from_vert] = 0
 
@@ -145,8 +150,14 @@ class Graph:
                 if curr_vert.id not in shortest_path:
                     shortest_path.append(curr_vert.id)
 
-        
         shortest_path.append(to_vert)
+        # Uncomment for tests
+        # sp_to_string = []
+        # for id in shortest_path:
+        #     sp_to_string.append(id.id)
+        # return(sp_to_string)
+
+        # Uncomment for running
         return("Vertices in shortest path: {}\n Number of edges in shortest path: {} ".format(",".join(shortest_path), len(shortest_path) -1 ))
 
 
